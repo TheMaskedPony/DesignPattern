@@ -4,6 +4,7 @@ import Patterns.AbstractFactory.Motor.GasMotor;
 import Patterns.AbstractFactory.Motor.Motor;
 import Patterns.AbstractFactory.Transport.Car;
 import Patterns.AbstractFactory.Transport.Motorbike;
+import Patterns.AbstractFactory.Transport.Transport;
 
 import java.awt.*;
 
@@ -34,7 +35,7 @@ public class GasTransportFactory implements AbstractTransportFactory {
 	 * @return Gas Car.
 	 */
 	@Override
-	public Car createCar(String brand, Color color, int placesCount, int doorCount) {
+	public Transport createCar(String brand, Color color, int placesCount, int doorCount) {
 		return new Car(brand, color, placesCount, doorCount, new GasMotor(this.getType(), GAS_CAR_MOTOR_WEIGHT));
 	}
 
@@ -46,7 +47,7 @@ public class GasTransportFactory implements AbstractTransportFactory {
 	 * @return Gas Motorbike.
 	 **/
 	@Override
-	public Motorbike createMotorbike(String brand, Color color, String cylinder) {
+	public Transport createMotorbike(String brand, Color color, String cylinder) {
 		return new Motorbike(brand, color, cylinder, new GasMotor(this.getType(), GAS_MOTORBIKE_MOTOR_WEIGHT));
 	}
 

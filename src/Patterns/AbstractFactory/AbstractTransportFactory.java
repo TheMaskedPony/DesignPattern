@@ -3,6 +3,7 @@ package Patterns.AbstractFactory;
 import Patterns.AbstractFactory.Motor.Motor;
 import Patterns.AbstractFactory.Transport.Car;
 import Patterns.AbstractFactory.Transport.Motorbike;
+import Patterns.AbstractFactory.Transport.Transport;
 
 import java.awt.*;
 
@@ -20,7 +21,7 @@ public interface AbstractTransportFactory {
 	 * @param doorCount Car door count.
 	 * @return A car object.
 	 */
-	Car createCar(String brand, Color color, int placesCount, int doorCount);
+	Transport createCar(String brand, Color color, int placesCount, int doorCount);
 
 	/**
 	 * Create a motorbike.
@@ -29,6 +30,6 @@ public interface AbstractTransportFactory {
 	 * @param cylinder Motorbike cylinder.
 	 * @return A motorbike object.
 	 */
-	Motorbike createMotorbike(String brand, Color color, String cylinder);
+	Transport createMotorbike(String brand, Color color, String cylinder);
 
 }

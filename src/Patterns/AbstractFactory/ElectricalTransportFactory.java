@@ -1,9 +1,9 @@
 package Patterns.AbstractFactory;
 
 import Patterns.AbstractFactory.Motor.ElectricalMotor;
-import Patterns.AbstractFactory.Motor.Motor;
 import Patterns.AbstractFactory.Transport.Car;
 import Patterns.AbstractFactory.Transport.Motorbike;
+import Patterns.AbstractFactory.Transport.Transport;
 
 import java.awt.*;
 
@@ -34,8 +34,9 @@ public class ElectricalTransportFactory implements AbstractTransportFactory {
 	 * @return Electrical Car.
 	 */
 	@Override
-	public Car createCar(String brand, Color color, int placesCount, int doorCount) {
-		return new Car(brand, color, placesCount, doorCount, new ElectricalMotor(Voltage.FOUR_HUNDRED_FIFTEEN, ELECTRICAL_CAR_MOTOR_WEIGHT));
+	public Transport createCar(String brand, Color color, int placesCount, int doorCount) {
+		return new Car(brand, color, placesCount, doorCount,
+				new ElectricalMotor(Voltage.FOUR_HUNDRED_FIFTEEN, ELECTRICAL_CAR_MOTOR_WEIGHT));
 	}
 
 	/**
@@ -46,8 +47,9 @@ public class ElectricalTransportFactory implements AbstractTransportFactory {
 	 * @return Electrical Motorbike.
 	 */
 	@Override
-	public Motorbike createMotorbike(String brand, Color color, String cylinder) {
-		return new Motorbike(brand, color, cylinder, new ElectricalMotor(Voltage.TWO_HUNDRED_TWENTY, ELECTRICAL_MOTORBIKE_MOTOR_WEIGHT));
+	public Transport createMotorbike(String brand, Color color, String cylinder) {
+		return new Motorbike(brand, color, cylinder,
+				new ElectricalMotor(Voltage.TWO_HUNDRED_TWENTY, ELECTRICAL_MOTORBIKE_MOTOR_WEIGHT));
 	}
 
 	/**
